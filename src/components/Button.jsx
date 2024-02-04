@@ -2,9 +2,9 @@
 
 import React from 'react';
 
-const MyButton = ({ onClick, className, text, isCopied }) => (
+const MyButton = ({ onClick, className, text, isCopied, disabled }) => (
   <div className="is-inline-block py-3 px-1">
-    <button className={`button ${className}`} onClick={onClick}>
+    <button disabled={disabled} className={`button ${className}`} onClick={onClick}>
       {isCopied ? (
         <>
           <span>Copied </span>
@@ -26,7 +26,7 @@ const FileInput = ({ handleFileSelect, fileName }) => (
         accept=".txt"
         onChange={handleFileSelect}
       />
-      <span className="file-label">{fileName}</span>
+      <span className="file-label">{fileName.length > 0 ? fileName : 'No File Choosen'}</span>
     </label>
   </div>
 );
